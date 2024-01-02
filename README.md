@@ -23,9 +23,7 @@ The challenge was simple: take a simple JavaScript program and recerate it using
 
 ### Screenshot
 
-Not yet available
-
-![](link.png)
+![](public/sticky_notes.png)
 
 ## My process
 
