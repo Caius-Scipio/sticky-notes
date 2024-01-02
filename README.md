@@ -1,70 +1,99 @@
-# Getting Started with Create React App
+# React Sticky Notes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This REACT version of my sticky notes was an attempt to take a JavaScript program I previously wrote and conver it.
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [Changes made](#changes-made)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### The challenge
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The challenge was simple: take a simple JavaScript program and recerate it using React
 
-### `npm test`
+### Screenshot
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Not yet available
 
-### `npm run build`
+![](link.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## My process
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Built with
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- CSS custom properties
+- REACT
 
-### `npm run eject`
+### Changes made
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  - Component-Based Structure: the UI is divided into modular components each with its own logic, state, and lifecycle methods.
+  - State Management: I am using the useState hook to manage the state of the stickies, note text, and note color.
+  - Lifecycle Methods: I am using the useEffect hook to initialize the application.
+  - Event Handling: I'm using the onSubmit, onChange, and onClick events directly in JSX.
+  - Rendering: I am using JSX syntax to define the UI.
+  - Conditional Rendering: I conditionally render components based on state.
+  - Component Re-rendering: with React, it updates and re-renders only the necessary components when the state changes.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### What I learned
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Making this React app was a pleasure, and if I had to summarize the three major takeaways, I'd have to say:
+- Translating vanilla JavaScript to React is not a straight forward process.
+- Thinking in components will take time, I'm sure I should've made a component or two for creating the stickies.
+- Component styling may be something useful to employ in future projects.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Here is some code I am particularly proud of, or think was interesting:
 
-## Learn More
+```css
+ul#stickies li:nth-child(even) {
+.
+.
+.
+}
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+ul#stickies li:nth-child(odd) {
+.
+.
+.
+}
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+ul#stickies li:nth-child(3n) {
+.
+.
+.
+}
+```
+```js
+useEffect(() => {
+  const stickiesArray = JSON.parse(localStorage.getItem("stickiesArray")) || [];
+  const stickyObjects = stickiesArray.map((key) => {
+    const stickyData = JSON.parse(localStorage.getItem(key));
+    return stickyData ? { id: key, ...stickyData } : null;
+  }).filter((sticky) => sticky !== null);
+  setStickies(stickyObjects);
+}, []);
+```
 
-### Code Splitting
+### Continued development
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This Sticky Note app is not quite done yet. Here are some things I'd like to do in the future with it:
+  - Add a priority to each note
+  - Add a label to each note
+  - Be able to sort by due date or color
 
-### Analyzing the Bundle Size
+### Useful resources
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- [w3schools](https://www.w3schools.com/) - My reference to remember the syntax and possibilites.
 
-### Making a Progressive Web App
+## Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Website - [Caius Scipio](https://caius-scipio.github.io/Portfolio/)
